@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoModel } from '../model/producto.model';
+import { BackendService } from 'src/app/shared/backend.service';
 
 @Component({
   selector: 'app-busqueda-producto',
@@ -10,17 +11,18 @@ export class BusquedaProductoComponent implements OnInit {
 
   searchText: String;
   productos: ProductoModel[];
-  constructor() { }
+  constructor(private backendService: BackendService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.productos = [
-      {id:1, nombre:'Notebook', precio:29999.99},
-      {id:2, nombre:'Monitor', precio:9999.99},
-      {id:3, nombre:'Mouse', precio:9.99},
-    ]
+    const url = ProductoModel.PATH + '/search-products?text=' + this.searchText;
+    console.log(url);
+    this.backendService.get(url)
+    .subscribe(data =>{
+      this.productos = data as ProductoModel[];
+    });   
   }
 
   editar(){
