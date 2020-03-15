@@ -1,0 +1,46 @@
+<div class="container">  
+    <div class="row">  
+        <div class="form_bg">  
+            <form #regForm='ngForm' (ngSubmit)="onSubmit()" >  
+                <h2 class="text-center">Busqueda</h2>  
+                <br/>  
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                              placeholder="Search" id="inputGroup"/>
+                              <button type="submit" class="btn btn-default" id="search"  >Buscar</button> 
+                    </div>
+                </div>
+            </form>  
+        </div>  
+    </div>  
+</div>
+
+<div class="container">  
+    <div class="row">  
+        <table *ngIf="productos">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Opcion</th>
+            </tr>
+            <tr *ngFor="let producto of productos">
+              <td>{{producto.id}}</td>
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.precio}}</td>
+              <td>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <button class="dropdown-item" (click)="editar()">Editar</button>
+                      <button class="dropdown-item" (click)="baja()">Baja</button>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+          </table>
+    </div>  
+  </div>
