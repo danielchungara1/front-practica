@@ -17,7 +17,7 @@
 
 <div class="container">  
     <div class="row">  
-        <table *ngIf="productos">
+        <table *ngIf="productos?.length > 0">
             <tr>
               <th>ID</th>
               <th>Nombre</th>
@@ -35,7 +35,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <button class="dropdown-item" (click)="editar()">Editar</button>
-                      <button class="dropdown-item" (click)="baja()">Baja</button>
+                      <button class="dropdown-item" (click)="baja(producto.id)">Baja</button>
                     </div>
                   </div>
               </td>

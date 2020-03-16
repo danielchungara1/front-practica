@@ -14,12 +14,11 @@ export class BusquedaProductoComponent implements OnInit {
   constructor(private backendService: BackendService) { }
 
   ngOnInit(): void {
+    this.searchText='';
   }
 
   onSubmit(){
-    const url = ProductoModel.PATH + '/search-products?text=' + this.searchText;
-    console.log(url);
-    this.backendService.get(url)
+    this.backendService.get(ProductoModel.PATH + '/search-products?text=' + this.searchText)
     .subscribe(data =>{
       this.productos = data as ProductoModel[];
     });   
@@ -29,8 +28,13 @@ export class BusquedaProductoComponent implements OnInit {
     alert("Proximamente...");
   }
 
-  baja(){
-    alert("Proximamente...");
+  baja(id: number){
+    this.backendService.delete(ProductoModel.PATH + '/delete/' + id).subscribe(data=>{
+      this.refreshListaProductos();
+    });
   }
 
+  refreshListaProductos(){
+    this.onSubmit();
+  }
 }
