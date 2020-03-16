@@ -33,17 +33,23 @@ export class AddEditProductoComponent implements OnInit {
   }
 
   onSubmit(){
-    this.backendService.post(ProductoModel.PATH, this.producto).subscribe(
-      data=> {
-        const p = data as ProductoModel;
-        this.router.navigate(['/detalles-producto', p.id]);
-      }
-    );
-
+    if (this.producto.id) {//put
+      this.backendService.put(ProductoModel.PATH + '/edit', this.producto).subscribe();
+    }else{//post
+      this.backendService.post(ProductoModel.PATH, this.producto).subscribe(
+        data=> {
+          const p = data as ProductoModel;
+          this.router.navigate(['/detalles-producto', p.id]);
+        }
+      );
+    }
   }
 
   getProducto(id){
-    this.producto = new ProductoModel();
+    this.backendService.get(ProductoModel.PATH + '/' + id).subscribe(data => {
+      this.producto = data as ProductoModel;
+    });
   }
 
 }
+   

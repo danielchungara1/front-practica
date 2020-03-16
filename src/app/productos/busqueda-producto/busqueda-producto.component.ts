@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoModel } from '../model/producto.model';
 import { BackendService } from 'src/app/shared/backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-busqueda-producto',
@@ -11,7 +12,8 @@ export class BusquedaProductoComponent implements OnInit {
 
   searchText: String;
   productos: ProductoModel[];
-  constructor(private backendService: BackendService) { }
+  constructor(private backendService: BackendService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.searchText='';
@@ -24,8 +26,8 @@ export class BusquedaProductoComponent implements OnInit {
     });   
   }
 
-  editar(){
-    alert("Proximamente...");
+  editar(id:number){
+    this.router.navigate(['/edit-producto', id], { queryParams: { titulo: 'Editar Producto' } });
   }
 
   baja(id: number){

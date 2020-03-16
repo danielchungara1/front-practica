@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BackendService {
-
   static PATH_API = 'http://localhost:8080/'
 
   constructor(private http: HttpClient) { }
@@ -22,6 +21,10 @@ export class BackendService {
 
   delete(path: string) {
     return this.http.delete(this.buildPath(path));
+  }
+
+  put(path: string, model) {
+    return this.http.put(this.buildPath(path), model);
   }
 
   // =======================METODOS AUXILIARES=============================
