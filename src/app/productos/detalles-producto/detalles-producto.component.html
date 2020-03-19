@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="producto">
   <div class="row">
     <div class="col-sm-6">
       <div class="card">
@@ -9,6 +9,7 @@
             <li>Nombre: {{producto.nombre}}</li>
             <li>Precio: {{producto.precio}}</li>
           </ul>
+          <button class="btn btn-primary mr-1" [routerLink]="['/edit-producto', producto.id]">Editar</button>
         </div>
       </div>
     </div>

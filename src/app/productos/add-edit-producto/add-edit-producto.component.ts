@@ -18,16 +18,16 @@ export class AddEditProductoComponent implements OnInit {
   constructor(private route: ActivatedRoute, private backendService: BackendService,
               private router: Router) {
    }
-     
+
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => this.titulo = params['titulo']);
-    
     this.route.params.subscribe(params => {
       this.idProducto = +params['id'];
       if(this.idProducto){
         this.getProducto(this.idProducto);
+        this.titulo = 'Editar';
       }else{
         this.producto = new ProductoModel();
+        this.titulo = 'Nuevo Producto';
       }
     });
   }
@@ -52,4 +52,3 @@ export class AddEditProductoComponent implements OnInit {
   }
 
 }
-   
