@@ -1,49 +1,51 @@
-<div class="container">  
+<div class="container">
   <div class="row">
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Busqueda</h5>
-          <div class="form_bg">  
-            <form #regForm='ngForm' (ngSubmit)="onSubmit()" >  
+          <div class="form_bg">
+            <form #regForm='ngForm' (ngSubmit)="onSubmit()">
               <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" id="inputGroup" [(ngModel)]="searchText" name='search-text'/>
-                    <button type="submit" class="btn btn-default" id="search"  >Buscar</button> 
+                  <input type="text" class="form-control" placeholder="Search" id="inputGroup" [(ngModel)]="searchText"
+                         name='search-text'/>
+                  <button type="submit" class="btn btn-default" id="search">Buscar</button>
                 </div>
               </div>
-            </form>   
-          </div>   
+            </form>
+          </div>
         </div>
       </div>
     </div>
-</div>
-
-<div class="container">  
-    <div class="row">  
-        <table *ngIf="productos?.length > 0">
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Opcion</th>
-            </tr>
-            <tr *ngFor="let producto of productos">
-              <td>{{producto.id}}</td>
-              <td>{{producto.nombre}}</td>
-              <td>{{producto.precio}}</td>
-              <td>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" 
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <button class="dropdown-item" (click)="editar(producto.id)">Editar</button>
-                      <button class="dropdown-item" (click)="baja(producto.id)">Baja</button>
-                    </div>
-                  </div>
-              </td>
-            </tr>
-          </table>
-    </div>  
   </div>
+
+  <div class="container">
+    <div class="row">
+      <table *ngIf="productos?.length > 0" class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Opcion</th>
+        </tr>
+        <tr *ngFor="let producto of productos">
+          <td>{{producto.id}}</td>
+          <td>{{producto.nombre}}</td>
+          <td>{{producto.precio}}</td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item" (click)="editar(producto.id)">Editar</button>
+                <button class="dropdown-item" (click)="baja(producto.id)">Baja</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,16 @@
-<div class="container">  
-    <div class="row">  
-        <h2 class="text-center">Detalles</h2>  
-        <br/>
-        <div *ngIf="producto">  
-            <div>Id: {{producto.id}}</div>
-            <div>Nombre: {{producto.nombre}}</div>
-            <div>Precio: {{producto.precio}}</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Detalles</h5>
+          <ul *ngIf="producto">
+            <li>Id: {{producto.id}}</li>
+            <li>Nombre: {{producto.nombre}}</li>
+            <li>Precio: {{producto.precio}}</li>
+          </ul>
         </div>
-    </div>  
+      </div>
+    </div>
   </div>
+</div>
