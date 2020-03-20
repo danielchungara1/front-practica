@@ -2,7 +2,7 @@
 
 # illustrator
 *.ai
-/temp/*
+/temp
 
 # compiled output
 /dist
