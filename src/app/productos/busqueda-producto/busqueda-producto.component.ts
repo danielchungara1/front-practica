@@ -36,6 +36,10 @@ export class BusquedaProductoComponent implements OnInit {
     this.router.navigate(['/edit-producto', id]);
   }
 
+  detalles (id: number){
+    this.router.navigate(['/detalles-producto', id]);
+  }
+
   baja(id: number){
     this.backendService.delete(ProductoModel.PATH + '/delete/' + id).subscribe(data=>{
       this.refreshListaProductos();
