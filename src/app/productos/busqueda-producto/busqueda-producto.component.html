@@ -40,13 +40,26 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <button class="dropdown-item" (click)="editar(producto.id)">Editar</button>
-                <button class="dropdown-item" (click)="baja(producto.id)">Baja</button>
+                <button class="dropdown-item" (click)="open(content)">Baja</button>
                 <button class="dropdown-item" (click)="detalles(producto.id)">Info</button>
               </div>
             </div>
           </td>
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Eliminar Producto</h4>
+            </div>
+            <div class="modal-body">
+              <p>Esta seguro que desea eliminar el producto.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger" (click)="baja(producto.id)">Eliminar</button>
+            </div>
+          </ng-template>
         </tr>
       </table>
     </div>
   </div>
 </div>
+
+
