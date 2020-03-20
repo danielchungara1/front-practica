@@ -3,6 +3,7 @@ import { ProductoModel } from '../model/producto.model';
 import { BackendService } from 'src/app/shared/backend.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-busqueda-producto',
@@ -16,7 +17,8 @@ export class BusquedaProductoComponent implements OnInit {
   productos: ProductoModel[];
   constructor(private backendService: BackendService,
               private router: Router, private route: ActivatedRoute,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -44,9 +46,10 @@ export class BusquedaProductoComponent implements OnInit {
   }
 
   baja(id: number){
-
     this.backendService.delete(ProductoModel.PATH + '/delete/' + id).subscribe(data=>{
       this.refreshListaProductos();
+      this.modalService.dismissAll();
+      this.toastr.success('Producto eliminado exitosamente.');
     });
   }
 
@@ -55,11 +58,7 @@ export class BusquedaProductoComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
 
   private getDismissReason(reason: any): string {
@@ -70,5 +69,9 @@ export class BusquedaProductoComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  close() {
+    this.modalService.dismissAll();
   }
 }
