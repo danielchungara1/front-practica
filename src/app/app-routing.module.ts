@@ -13,6 +13,8 @@ const routes: Routes = [
   {path:'', component: HomeComponent,
     children: [
       {path: 'login', component: IngresoComponent},
+      {path: 'registro', component: IngresoComponent},
+      {path: 'credenciales', component: IngresoComponent},
       {path: 'nuevo-producto', component: AddEditProductoComponent},
       {path: 'busqueda-producto', component: BusquedaProductoComponent},
       {path: 'detalles-producto/:id', component: DetallesProductoComponent},

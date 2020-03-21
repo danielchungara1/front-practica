@@ -1,3 +1,6 @@
+<!--========================================-->
+<!--BARRA PRODUCTOS-->
+<!--========================================-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="false">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1"
             aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +22,9 @@
     </div>
 </nav>
 
+<!--========================================-->
+<!--BARRA INGRESO-->
+<!--========================================-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="true">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2"
           aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,14 +33,14 @@
   <div class="collapse navbar-collapse" id="navbarNav2">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink='/busqueda-producto'>Login</a>
+        <a class="nav-link" routerLink='/login'>Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink='/nuevo-producto'>
+        <a class="nav-link" routerLink='/registro'>
           Registro<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink='/busqueda-producto'>Credenciales</a>
+        <a class="nav-link" routerLink='/credenciales'>Credenciales</a>
       </li>
     </ul>
   </div>
