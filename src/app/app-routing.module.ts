@@ -5,12 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { AddEditProductoComponent } from './productos/add-edit-producto/add-edit-producto.component';
 import { BusquedaProductoComponent } from './productos/busqueda-producto/busqueda-producto.component';
 import { DetallesProductoComponent } from './productos/detalles-producto/detalles-producto.component';
+import {IngresoComponent} from './ingreso/ingreso.component';
 
 
 const routes: Routes = [
 
   {path:'', component: HomeComponent,
     children: [
+      {path: 'login', component: IngresoComponent},
       {path: 'nuevo-producto', component: AddEditProductoComponent},
       {path: 'busqueda-producto', component: BusquedaProductoComponent},
       {path: 'detalles-producto/:id', component: DetallesProductoComponent},

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{titulo}}</h5>
+          <div class="form_bg">
+            <form #regForm='ngForm' (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email" name="email"
+                       [(ngModel)]=usuario.email>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="Password" name="password"
+                       [(ngModel)]=usuario.password>
+              </div>
+              <button type="submit" class="btn btn-primary mr-1" id="accion">{{accion}}</button>
+              <a class="d-block" routerLink='/busqueda-producto'>Recuperar Credenciales</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
